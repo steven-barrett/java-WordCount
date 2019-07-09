@@ -16,15 +16,16 @@ public class Main
         HashMap results = wordCount(words);
         ArrayList<HashMap.Entry<String, Integer>> sortedMap = new ArrayList<>();
         sortedMap.addAll(results.entrySet());
-        
+                        
         Collections.sort(sortedMap, new Comparator<HashMap.Entry<String, Integer>>()
-		{
-			public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
-			{
-				return o2.getValue() - o1.getValue();
-			}
+		    {
+          public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+          {
+                    // return o2.getValue() - o1.getValue();
+                    return o1.getKey().compareToIgnoreCase(o2.getKey());
+          }
         });
-        
+
         int count = 0;
         for (HashMap.Entry<String, Integer> s : sortedMap)
 		{
